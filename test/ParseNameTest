@@ -1,0 +1,88 @@
+
+package score.validation;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.when;
+
+import org.easymock.Mock;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.Mockito;
+import org.supercsv.cellprocessor.ift.CellProcessor;
+import org.supercsv.exception.SuperCsvCellProcessorException;
+
+import imt.auto.junit.AutoPojoTester;
+
+public class ParseNameTest extends AutoPojoTester {
+
+	private static final Object SUCCESS_MESSAGE = "OK";
+
+	final String middle = "middle";
+	
+	private ParseName testObj;
+
+	@Mock
+	CellProcessor mockProcessor;
+
+	@Before
+	public void setUp() throws Exception {
+
+	}
+
+	@After
+	public void tearDown() throws Exception {
+		testObj = null;
+	}
+	
+	@Test
+	public void testNullException() {
+		String message = null;
+		testObj = new ParseName(middle);
+		try {
+			testObj.execute(null, null);
+		} catch (SuperCsvCellProcessorException e) {
+			message = e.getMessage();
+		}
+		assertNotEquals(message, null);
+		assertTrue(message.contains("middle name may not be null"));
+	}
+	
+	@Test
+	public void testNameTooLongException() {
+		String alphabet = "abcdefghijklmnopqrstuvwxyz";
+		String message = null;
+		testObj = new ParseName(middle);
+		try {
+			testObj.execute(alphabet, null);
+		} catch (SuperCsvCellProcessorException e) {
+			message = e.getMessage();
+		}
+		assertNotEquals(message, null);
+		assertTrue(message.contains("middle name is too long"));
+	}
+
+	@Test
+	public void testValidName() {
+		String name = "smith";
+		String message = null;
+		mockProcessor = spy(CellProcessor.class);
+		when(mockProcessor.execute(Mockito.anyObject(), Mockito.anyObject())).thenReturn(SUCCESS_MESSAGE);
+		
+		testObj = new ParseName(mockProcessor);
+		Object result = null;
+		try {
+			result = testObj.execute(name, null);
+		} catch (SuperCsvCellProcessorException e) {
+			message = e.getMessage();
+		}
+		assertEquals(message, null);
+		assertEquals(result.toString(), SUCCESS_MESSAGE);
+		
+	}
+	
+	
+}
