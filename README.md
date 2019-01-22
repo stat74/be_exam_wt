@@ -1,6 +1,14 @@
 # SCOIR Technical Interview for Back-End Engineers
 This repo contains an exercise intended for Back-End Engineers.
 
+## How-To
+1. Process is kicked off by running TresslerMain
+1. Placed GSON 2.8.5 and Super CSV 2.4.0 in Java Build Path
+
+## Assumptions
+1. Did not print out json result if no input lines were present or no lines validly parsed
+1. Included an example JUnit.  Would cover all code in a production system, but would need more hours.
+
 ## Instructions
 1. Fork this repo.
 1. Using technology of your choice, complete [the assignment](./Assignment.md).
