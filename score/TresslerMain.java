@@ -17,6 +17,7 @@ public class TresslerMain {
 
 	static final CSVFileReader reader = new CSVFileReader();
 	static final CSVFileWriter jsonWriter = new CSVFileWriter();
+	static final boolean consoleLogging = true;
 
 	static class ProcessingThread extends Thread {
 
@@ -32,6 +33,9 @@ public class TresslerMain {
 	}
 
 	public static void main(String[] args) {
+		if (consoleLogging) {
+			System.out.println("begin watching for csv files");
+		}
 		WatchService watcher = initialize();
 		boolean valid = true;
 		do {
@@ -70,12 +74,21 @@ public class TresslerMain {
 			WatchEvent<Path> ev = (WatchEvent<Path>) event;
 			String temp = ev.context().toString();
 			String aFileName = temp.substring(0, temp.lastIndexOf(CSVConstants.CSV));
+			if (consoleLogging) {
+				System.out.println("found file: " + aFileName);
+			}
 			Person[] p = reader.parseFile(aFileName);
 			if (p.length > 0) {
 				jsonWriter.writeFile(p, aFileName);
+				if (consoleLogging) {
+					System.out.println("results file: " + aFileName + " with " + p.length + " valid entries.");
+				}
 			}
 			try {
 				new File(CSVConstants.INPUT_DIRECTORY + "//" + temp).delete();
+				if (consoleLogging) {
+					System.out.println("deleted file: " + temp);
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
