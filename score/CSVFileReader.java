@@ -21,21 +21,22 @@ import score.validation.ParseOptionalName;
 
 public class CSVFileReader {
 
+	final String[] outputList = { CSVConstants.ID, CSVConstants.FIRST, CSVConstants.MIDDLE, CSVConstants.LAST,
+			CSVConstants.PHONE };
+
 	public Person[] parseFile(String fileName) {
 		List<Person> parsedValues = new ArrayList<Person>();
 		List<CSVParsingError> parsingProblems = new ArrayList<CSVParsingError>();
 		try (ICsvBeanReader beanReader = new CsvBeanReader(new FileReader(fileName + CSVConstants.CSV),
 				CsvPreference.STANDARD_PREFERENCE)) {
 			beanReader.getHeader(true);
-			final String[] outputList = { CSVConstants.ID, CSVConstants.FIRST, CSVConstants.MIDDLE, CSVConstants.LAST,
-					CSVConstants.PHONE };
-			final CellProcessor[] processors = getProcessors();
 
+			final CellProcessor[] processors = getProcessors();
 			while (readOneLine(beanReader, outputList, processors, parsedValues, parsingProblems))
 				;
 			beanReader.close();
 		} catch (IOException e) {
-			e.printStackTrace();
+			// already caught below
 		}
 
 		if (parsingProblems.size() > 0) {
@@ -54,8 +55,15 @@ public class CSVFileReader {
 			}
 			parsedValues.add(line.convertToPerson());
 
-		} catch (SuperCsvException e) {
-			CSVParsingError anError = new CSVParsingError(beanReader.getLineNumber(), e.getMessage());
+		} catch (Exception e) {
+			CSVParsingError anError = new CSVParsingError(beanReader.getLineNumber(), null);
+			if (e instanceof SuperCsvException) {
+				final int col = ((SuperCsvException) e).getCsvContext().getColumnNumber();
+				final String offendingColumn = outputList[col - 1] + ": ";
+				anError.setMessage(offendingColumn + e.getMessage());
+			} else {
+				anError.setMessage(e.getMessage().replace(',',' '));
+			}
 			parsingProblems.add(anError);
 		}
 		return true;
