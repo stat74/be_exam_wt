@@ -25,4 +25,6 @@ public class CSVConstants {
 	public static final String ERROR_MSG = "ERROR_MSG";
 	public static final String DELIMITER = ",";
 	public static final String END_LINE = "\n";
+	
+	public static final String FILE_FORMAT = "utf-8";
 }
