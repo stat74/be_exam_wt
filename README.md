@@ -8,6 +8,7 @@ This repo contains an exercise intended for Back-End Engineers.
 ## Assumptions
 1. Did not print out json result if no input lines were present or no lines validly parsed
 1. Included an example JUnit.  Would cover all code in a production system, but would need more hours.
+1. Would ask the product owner about the input story.  It implies files with already seen names aren't processed, but the output requirement says a file collison overwrites.
 
 ## Instructions
 1. Fork this repo.
