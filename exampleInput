@@ -1,0 +1,46 @@
+INTERNAL_ID,FIRST_NAME,MIDDLE_NAME,LAST_NAME,PHONE_NUM
+00000001,George,,Washington,123-457-6890
+00000002,John,,Adams,223-457-6890
+00000003,Thomas,,Jefferson,323-457-6890
+00000004,James,,Madison,323-557-6890
+00000005,James,,Monroe,423-457-6890
+00000006,John,Quincy,Adams,563-457-6890
+,Andrew,,Jackson,763-457-6890
+00000008,Martin,Van,Buren,888-888-8888
+00^00009,William,Henry,Harrison,963-457-6890
+000000010,John,,Tyler,963-457-6890
+00000011,James,Kay,Polk,943-457-6890
+00000012,,,Taylor,934-467-6893
+00000013,MillardMillardMi,,Fillmore,934-467-6890
+00000014,Franklin,,Pierce,114-467-6890
+00000015,James,,,111-467-6890
+00000016,Abraham,,LincolnLincolnLincoln,999-467-6890
+00000017,Andrew,,Johnson,919-467-6890
+00000018,Ulysses,SSSSSSSSSSSSSSSSSSSSSSSS,Grant,419-467-6890
+00000019,Rutherford,B,Hayes,419-999-6890
+00000020,James,A,Garfield,419-999-6890
+00000021,Chester,Alan,Arthur,
+00000022,Grover,,Cleveland,1234567890
+00000023,Benjamin,,Harrison,123-4567
+00000024,Grover,,Cleveland,abc-def-ghij
+00000025,William,,McKinley,123-45-12345
+00000026,Theodore,Teddy,Roosevelt,123-45-2345
+00000027,William,Howard,Taft,098-765-4321
+00000028,Woodrow,Wilson,,,,,,,,,,,,
+00000029,Warren,Gamaliel,Harding,
+00000030,Calvin, Coolidge
+00000031, Herbert,,Hoover,999-777-8888
+00000032, Franklin,D,Roosevelt,666-777-8888
+00000033,Harry,S,Truman,333-777-8888
+00000034,Dwight,David,Eisenhower,222-777-8888
+00000035,John,Fitzgerald,,
+00000036,Lyndon,Baines,Johnson,223-435-6789
+00000037,Richard,I'm not a Crook,Nixon,123-435-6789
+00000038,Gerald,Ford,,123-333-6789
+00000039,Jimmy,Earl,Carter,143-435-6789
+00000040,Ronald,,Reagan,777-737-6789
+00000041,George,Herbert Walker,Bush,111-737-6789
+00000042,William,Jefferson,Clinton,111-121-6789
+00000043,George,Walker,Bush,888-777-6789
+00000044,Barack,,Obama,888-88-6789
+00000045,
