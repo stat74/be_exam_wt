@@ -1,6 +1,7 @@
 
 package score;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
@@ -32,10 +33,16 @@ public class CSVFileWriter {
 	};
 
 	public void writeFile(Person p[], String fileName) {
+		
+		File directory = new File(CSVConstants.OUTPUT_DIRECTORY);
+		if (!directory.exists()) {
+			directory.mkdir();
+		}
+		
 		Gson gson = new GsonBuilder().addSerializationExclusionStrategy(strategy).create();
 
 		try (Writer writer = new OutputStreamWriter(
-				new FileOutputStream(CSVConstants.OUTPUT_DIRECTORY + fileName.concat(CSVConstants.JSON)), "UTF-8")) {
+				new FileOutputStream(CSVConstants.OUTPUT_DIRECTORY + fileName.concat(CSVConstants.JSON)), CSVConstants.FILE_FORMAT)) {
 			gson.toJson(p, writer);
 			writer.close();
 		} catch (Exception e) {
