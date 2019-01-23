@@ -1,0 +1,22 @@
+LINE_NUM,ERROR_MSG
+8,id: this processor does not accept null input - if the column is optional then chain an Optional() processor before this one
+10,id: '00^00009' does not match the constraint 'id must be a positive numerical value with exactly eight digits' defined by the regular expression '^(?!00000000)\d{8}'
+11,id: '000000010' does not match the constraint 'id must be a positive numerical value with exactly eight digits' defined by the regular expression '^(?!00000000)\d{8}'
+13,first: first name may not be null
+14,first: first name is too long: MillardMillardMi
+16,last: last name may not be null
+17,last: last name is too long: LincolnLincolnLincoln
+19,middle: middle name is too long: SSSSSSSSSSSSSSSSSSSSSSSS
+22,phone: this processor does not accept null input - if the column is optional then chain an Optional() processor before this one
+23,phone: '1234567890' does not match the constraint 'phone must be in the format ###-###-####' defined by the regular expression '^\d{3}-\d{3}-\d{4}'
+24,phone: '123-4567' does not match the constraint 'phone must be in the format ###-###-####' defined by the regular expression '^\d{3}-\d{3}-\d{4}'
+25,phone: 'abc-def-ghij' does not match the constraint 'phone must be in the format ###-###-####' defined by the regular expression '^\d{3}-\d{3}-\d{4}'
+26,phone: '123-45-12345' does not match the constraint 'phone must be in the format ###-###-####' defined by the regular expression '^\d{3}-\d{3}-\d{4}'
+27,phone: '123-45-2345' does not match the constraint 'phone must be in the format ###-###-####' defined by the regular expression '^\d{3}-\d{3}-\d{4}'
+29,the nameMapping array and the number of columns read should be the same size (nameMapping length = 5  columns = 15)
+30,phone: this processor does not accept null input - if the column is optional then chain an Optional() processor before this one
+31,the nameMapping array and the number of columns read should be the same size (nameMapping length = 5  columns = 3)
+36,last: last name may not be null
+39,last: last name may not be null
+45,phone: '888-88-6789' does not match the constraint 'phone must be in the format ###-###-####' defined by the regular expression '^\d{3}-\d{3}-\d{4}'
+46,the nameMapping array and the number of columns read should be the same size (nameMapping length = 5  columns = 2)
